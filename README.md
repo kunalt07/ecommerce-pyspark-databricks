@@ -1,6 +1,15 @@
 # 🛒 Brazilian E-Commerce Analytics Pipeline
 
-An end-to-end data engineering project built on **Databricks** and **PySpark**, implementing a **Medallion Architecture** (Bronze → Silver → Gold) on real-world e-commerce data from Olist (Brazil), with analytics dashboards in **Tableau Public**.
+An end-to-end data engineering project built on **Databricks** and **PySpark**, implementing a **Medallion Architecture** (Bronze → Silver → Gold) on real-world e-commerce data from Olist (Brazil).
+
+The pipeline ingests 9 relational CSV tables (100K+ orders) into **Delta Lake**, applies multi-stage cleaning and enrichment using PySpark transformations, and produces business-ready aggregations exposed via **Databricks SQL views**. Analytics are delivered through an interactive **Tableau Public** story covering revenue trends, seller performance, and delivery risk across Brazil.
+
+This project demonstrates production-grade data engineering practices including:
+- Schema enforcement and data quality checks at ingestion
+- Timestamp parsing, null handling, and deduplication in the transformation layer
+- Window functions, derived metrics, and business logic in the aggregation layer
+- Separation of raw, cleaned, and serving layers using the Medallion pattern
+- End-to-end traceability from raw CSV to dashboard
 
 ---
 
