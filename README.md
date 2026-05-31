@@ -33,14 +33,50 @@ An end-to-end data engineering project built on **Databricks** and **PySpark**, 
 ---
 
 ## 📁 Project Structure
-ecommerce-pyspark-databricks/
-├── 01_bronze_ingestion.py       # Raw CSV → Delta Lake
-├── 02_silver_cleaning.py        # Cleaning, joining, enrichment
-├── 03_gold_aggregations.py      # Business metrics
-├── 04_databricks_sql_views.py   # SQL views on Gold tables
-├── 05_export_for_tableau.py     # CSV exports for Tableau
-└── README.md
 
+```
+ecommerce-pyspark-databricks/
+│
+├── 01_bronze_ingestion.py
+│   └── Reads 9 raw CSVs from Unity Catalog Volume
+│   └── Adds audit columns (_ingested_at, _source_file)
+│   └── Runs null PK and duplicate checks
+│   └── Writes managed Delta tables to ecommerce_bronze
+│
+├── 02_silver_cleaning.py
+│   └── Parses timestamps, derives delivery_delay_days
+│   └── Flags late deliveries (is_late_delivery)
+│   └── Deduplicates reviews (latest per order)
+│   └── Aggregates payments to one row per order
+│   └── Joins products with English category names
+│   └── Averages geolocation per zip code
+│   └── Writes 7 cleaned tables to ecommerce_silver
+│
+├── 03_gold_aggregations.py
+│   └── seller_performance — revenue, review score, late delivery % per seller
+│   └── monthly_revenue — revenue trend by category and month
+│   └── state_distribution — customer count and revenue by state
+│   └── late_delivery_heatmap — late delivery % by seller city
+│   └── category_performance — revenue and review score by category
+│
+├── 04_databricks_sql_views.py
+│   └── vw_seller_performance — adds seller tier classification
+│   └── vw_monthly_revenue_trend — adds cumulative revenue window function
+│   └── vw_state_distribution — adds revenue share % per state
+│   └── vw_late_delivery_heatmap — adds delivery risk level classification
+│   └── vw_category_performance — adds revenue rank and share per category
+│
+├── 05_export_for_tableau.py
+│   └── Exports all 5 Gold views as single CSV files
+│   └── Saves to Unity Catalog Volume for download
+│
+└── screenshots/
+    ├── architecture.png
+    ├── catalog_tables.png
+    ├── bronze_summary.png
+    ├── silver_complete.png
+    └── gold_complete.png
+```
 ---
 
 ## 🔧 Tech Stack
