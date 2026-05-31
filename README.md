@@ -26,6 +26,22 @@ Tableau Public Dashboards
 
 ---
 
+## 🖼️ Pipeline Screenshots
+
+**Medallion Layer Tables in Databricks Catalog**
+![Catalog](screenshots/catalog_tables.png)
+
+**Bronze Ingestion Summary**
+![Bronze](screenshots/bronze_summary.png)
+
+**Silver Layer Complete**
+![Silver](screenshots/silver_complete.png)
+
+**Gold Layer Complete**
+![Gold](screenshots/gold_complete.png)
+
+---
+
 ## 📁 Project Structure
 ecommerce-pyspark-databricks/
 ├── 01_bronze_ingestion.py       # Raw CSV → Delta Lake
