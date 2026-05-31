@@ -29,16 +29,16 @@ Tableau Public Dashboards
 ## 🖼️ Pipeline Screenshots
 
 **Medallion Layer Tables in Databricks Catalog**
-![Catalog](screenshots/catalog_tables.png)
+![Catalog](Catalog_view.png)
 
 **Bronze Ingestion Summary**
-![Bronze](screenshots/bronze_summary.png)
+![Bronze](Bronze_notebook.png)
 
 **Silver Layer Complete**
-![Silver](screenshots/silver_complete.png)
+![Silver](Silver_notebook.png)
 
 **Gold Layer Complete**
-![Gold](screenshots/gold_complete.png)
+![Gold](Gold_notebook.png)
 
 ---
 
