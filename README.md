@@ -11,18 +11,8 @@ An end-to-end data engineering project built on **Databricks** and **PySpark**, 
 ---
 
 ## 🏗️ Architecture
-Raw CSVs (9 files, 100K+ records)
-↓
-[Bronze Layer]
-Delta Tables — Raw ingestion with audit columns
-↓
-[Silver Layer]
-Cleaned, joined, enriched data
-↓
-[Gold Layer]
-Business aggregations + Databricks SQL Views
-↓
-Tableau Public Dashboards
+
+![Architecture](screenshots/architecture.png)
 
 ---
 
